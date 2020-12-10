@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: neo4j
+  name: neo4j
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: neo4j
+  template:
+    metadata:
+      labels:
+        app: neo4j
+    spec:
+      containers:
+      - image: registry.hub.docker.com/library/neo4j
+        name: neo4j
+        ports:
+        - containerPort: 7474
+          name: tcp-http
+        - containerPort: 7687
+          name: tcp-bolt
