@@ -16,7 +16,7 @@ spec:
         app: neo4j
     spec:
       containers:
-      - image: registry.hub.docker.com/library/neo4j
+      - image: neo4j
         name: neo4j
         ports:
         - containerPort: 7474
