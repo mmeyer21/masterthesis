@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: splunk
+  name: splunk
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: splunk
+  template:
+    metadata:
+      labels:
+        app: splunk
+    spec:
+      containers:
+      - image: splunk/splunk:8.0.7
+        name: splunk
+        ports:
+        - containerPort: 8000
+          name: tcp-http
+        - containerPort: 8089
+          name: tcp-mgmt

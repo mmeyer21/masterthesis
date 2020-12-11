@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: splunk
+  labels:
+    app: splunk
+spec:
+  type: LoadBalancer
+  ports:
+  - name: tcp-http
+    port: 80
+    targetPort: 8000
+  selector:
+    app: splunk
