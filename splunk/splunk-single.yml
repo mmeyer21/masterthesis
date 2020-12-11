@@ -18,6 +18,13 @@ spec:
       containers:
       - image: splunk/splunk:8.0.7
         name: splunk
+        env:
+        - name: SPLUNK_START_ARGS
+          value: "--accept-license"
+        - name: SPLUNK_PASSWORD
+          value: "splunk@Home"
+        - name: SPLUNK_APPS_URL
+          value: "https://docs.google.com/uc?export=download&id=1njDnc1nrS3oE8l7sktD0V3DmyMX9FsLW,https://docs.google.com/uc?export=download&id=1Z1pmGnaURMApChTe4HOKqLfceHMxMVTS,https://github.com/mmeyer21/masterthesis/raw/main/apps/tgz/mm_Attack-Pattern_Service_Scoring.tgz,https://github.com/mmeyer21/masterthesis/raw/main/apps/tgz/mm_SA_ThreatDetection.tgz"
         ports:
         - containerPort: 8000
           name: tcp-http
