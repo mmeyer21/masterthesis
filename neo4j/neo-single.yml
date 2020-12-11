@@ -18,6 +18,9 @@ spec:
       containers:
       - image: neo4j
         name: neo4j
+        env:
+        - name: NEO4J_AUTH
+          value: neo4j/neo@Home
         ports:
         - containerPort: 7474
           name: tcp-http
